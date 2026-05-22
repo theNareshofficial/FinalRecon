@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.imgur.com/rLENhCp.jpg"></p>
+<p align="center"><img src="https://res.cloudinary.com/dg5ijxsap/image/upload/v1779455043/finalrecon_banner_2026_b2yk18.jpg"></p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/Python-3-brightgreen.svg?style=plastic">
@@ -33,59 +33,61 @@ FinalRecon is an all in one **automatic web reconnaissance** tool written in pyt
 ## Featured On
 
 ### Python For OSINT
-* Hakin9 April 2020
-* https://hakin9.org/product/python-for-osint-tooling/
+
+- Hakin9 April 2020
+- https://hakin9.org/product/python-for-osint-tooling/
 
 ### NullByte
-* https://null-byte.wonderhowto.com/how-to/conduct-recon-web-target-with-python-tools-0198114/
-* https://www.youtube.com/watch?v=F9lwzMPGIgo
+
+- https://null-byte.wonderhowto.com/how-to/conduct-recon-web-target-with-python-tools-0198114/
+- https://www.youtube.com/watch?v=F9lwzMPGIgo
 
 ### Hakin9
-* https://hakin9.org/final-recon-osint-tool-for-all-in-one-web-reconnaissance/
+
+- https://hakin9.org/final-recon-osint-tool-for-all-in-one-web-reconnaissance/
 
 ## Features
 
 FinalRecon provides detailed information such as :
 
-* Header Information
-
-* Whois
-
-* SSL Certificate Information
-
-* Crawler
-  * html
-    * CSS
-    * Javascripts
-    * Internal Links
-    * External Links
-    * Images
-  * robots
-  * sitemaps
-  * Links inside Javascripts
-  * Links from Wayback Machine from Last 1 Year
-
-* DNS Enumeration
-  * Over 40 types of Records are queried
-  * DMARC Records
-
-* Subdomain Enumeration
-  * Over 10 reliable data sources
-
-* Directory Enumeration
-  * Support for File Extensions
-
-* Wayback Machine
-    * URLs from Last 5 Years
-
-* Port Scan
-  * Fast
-  * Top 1000 Ports
-
-* Export
-  * Formats
-    * txt
-    * json [Coming Soon]
+- Header Information
+  - General vs Security header categorization
+  - Missing security headers flagged
+  - Cookie attribute breakdown (Secure, HttpOnly, SameSite)
+- Whois
+  - Domain expiry countdown
+  - DNSSEC status
+- SSL Certificate Information
+- Crawler
+  - html
+    - CSS
+    - Javascripts
+    - Internal Links
+    - External Links
+    - Images
+  - robots
+  - sitemaps
+  - Links inside Javascripts
+  - Links from Wayback Machine from Last 1 Year
+- DNS Enumeration
+  - Over 40 types of Records queried and grouped by category
+  - Security records highlighted
+  - DMARC Records
+- Subdomain Enumeration
+  - Over 15 reliable data sources
+  - Real-time error reporting per source
+- Directory Enumeration
+  - Phantom URL probing to reduce false positives
+  - Smart real-time soft-404 filtering based on content length and redirect clustering
+  - Support for File Extensions
+- Wayback Machine
+  - URLs from Last 5 Years
+- Port Scan
+  - Fast
+  - Top 1000 Ports
+- Export
+  - Formats
+    - txt
 
 ## Configuration
 
@@ -98,8 +100,9 @@ Some Modules Use API Keys to fetch data from different resources, these are opti
 Keys are read from environment variables if they are set otherwise they are loaded from the config directory
 
 ```bash
-FR_BEVIGIL_KEY, FR_BINEDGE_KEY, FR_FB_KEY, FR_HUNTER_KEY,
-FR_NETLAS_KEY, FR_SHODAN_KEY, FR_VT_KEY, FR_ZOOMEYE_KEY
+FR_BEVIGIL_KEY, FR_HUNTER_KEY, FR_NETLAS_KEY,
+FR_SHODAN_KEY, FR_VT_KEY, FR_ZOOMEYE_KEY,
+FR_CHAOS_KEY, FR_GITHUB_KEY, FR_LEAKIX_KEY
 
 # Example :
 
@@ -114,7 +117,7 @@ You can use **`-k`** to add the keys which will be saved in config directory aut
 # Usage
 python3 finalrecon.py -k '<API NAME>@<API KEY>'
 
-Valid Keys : 'bevigil', 'binedge', 'facebook', 'hunter', 'netlas','shodan', 'virustotal', 'zoomeye'
+Valid Keys : 'bevigil', 'chaos', 'github', 'hunter', 'leakix', 'netlas', 'shodan', 'virustotal', 'zoomeye'
 
 # Example :
 python3 finalrecon.py -k 'shodan@kl32lcdqwcdfv'
@@ -122,16 +125,17 @@ python3 finalrecon.py -k 'shodan@kl32lcdqwcdfv'
 
 `Path = $HOME/.config/finalrecon/keys.json`
 
-| Source | Module | Link |
-|--------|--------|------|
-| Facebook | Sub Domain Enum | https://developers.facebook.com/docs/facebook-login/access-tokens |
-| VirusTotal | Sub Domain Enum | https://www.virustotal.com/gui/my-apikey |
-| Shodan | Sub Domain Enum | https://developer.shodan.io/api/requirements |
-| BeVigil | Sub Domain Enum | https://bevigil.com/osint-api |
-| BinaryEdge | Sub Domain Enum | https://app.binaryedge.io/ |
-| Netlas | Sub Domain Enum | https://docs.netlas.io/getting_started/ |
-| ZoomEye | Sub Domain Enum | https://www.zoomeye.hk/ |
-| Hunter | Sub Domain Enum | https://hunter.how/search-api |
+| Source     | Module          | Link                                         |
+| ---------- | --------------- | -------------------------------------------- |
+| VirusTotal | Sub Domain Enum | https://www.virustotal.com/gui/my-apikey     |
+| Shodan     | Sub Domain Enum | https://developer.shodan.io/api/requirements |
+| BeVigil    | Sub Domain Enum | https://bevigil.com/osint-api                |
+| Chaos      | Sub Domain Enum | https://cloud.projectdiscovery.io            |
+| LeakIX     | Sub Domain Enum | https://leakix.net                           |
+| GitHub     | Sub Domain Enum | https://github.com/settings/tokens           |
+| Netlas     | Sub Domain Enum | https://docs.netlas.io/getting_started/      |
+| ZoomEye    | Sub Domain Enum | https://www.zoomeye.hk/                      |
+| Hunter     | Sub Domain Enum | https://hunter.how/search-api                |
 
 ### JSON Config File
 
@@ -139,32 +143,32 @@ Default config file is available at `~/.config/finalrecon/config.json`
 
 ```json
 {
-    "common": {
-        "timeout": 30,
-        "dns_servers": "8.8.8.8, 8.8.4.4, 1.1.1.1, 1.0.0.1"
-    },
-    "ssl_cert": {
-        "ssl_port": 443
-    },
-    "port_scan": {
-        "threads": 50
-    },
-    "dir_enum": {
-        "threads": 50,
-        "redirect": false,
-        "verify_ssl": false,
-        "extension": ""
-    },
-    "export": {
-        "format": "txt"
-    }
+  "common": {
+    "timeout": 30,
+    "dns_servers": "8.8.8.8, 8.8.4.4, 1.1.1.1, 1.0.0.1"
+  },
+  "ssl_cert": {
+    "ssl_port": 443
+  },
+  "port_scan": {
+    "threads": 50
+  },
+  "dir_enum": {
+    "threads": 50,
+    "redirect": false,
+    "verify_ssl": false,
+    "extension": ""
+  },
+  "export": {
+    "format": "txt"
+  }
 }
 ```
 
 ## Tested on
 
-* Kali Linux
-* BlackArch Linux
+- Kali Linux
+- BlackArch Linux
 
 > FinalRecon is a tool for **Pentesters** and it's designed for **Linux** based Operating Systems, other platforms like **Windows** and **Termux** are **NOT** supported.
 
@@ -198,14 +202,14 @@ pip3 install -r requirements.txt
 
 ### Docker
 
-``` bash
+```bash
 docker pull thewhiteh4t/finalrecon
 docker run -it --entrypoint /bin/sh thewhiteh4t/finalrecon
 ```
 
 Also docker user can use this alias to run the finalrecon as the normal CLI user.
 
-``` bash
+```bash
 alias finalrecon="docker run -it --rm --name finalrecon  --entrypoint 'python3' thewhiteh4t/finalrecon finalrecon.py"
 ```
 
@@ -281,4 +285,7 @@ python3 finalrecon.py --full --url https://example.com
 ```
 
 ## Demo
+
 [![Odysee](https://i.imgur.com/IQpZ67e.png)](https://odysee.com/@thewhiteh4t:2/what%27s-new-in-finalrecon-v1.0.2-osint:c)
+
+<p align="center">Created by <a href="https://thewhiteh4t.github.io">Lohitya Pushkar</a> (thewhiteh4t)</p>
