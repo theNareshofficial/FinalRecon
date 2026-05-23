@@ -21,6 +21,7 @@ from modules.subdomain_modules.netlas_subs import netlas
 from modules.subdomain_modules.shodan_subs import shodan
 from modules.subdomain_modules.urlscan_subs import urlscan
 from modules.subdomain_modules.virustotal_subs import virust
+from modules.subdomain_modules.wayback_subs import machine
 from modules.subdomain_modules.zoomeye_subs import zoomeye
 from modules.write_log import log_writer
 
@@ -86,6 +87,7 @@ async def query(hostname, tout, api_keys):
             chaos(hostname, api_keys["chaos"], session),
             leakix(hostname, api_keys["leakix"], session),
             github(hostname, api_keys["github"], session),
+            machine(hostname, session),
         )
     await session.close()
     return results
