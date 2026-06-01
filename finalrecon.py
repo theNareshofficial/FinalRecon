@@ -236,6 +236,7 @@ try:
         netloc = f"{hostname}:{port}" if port else hostname
         domain = ""
         domain_suffix = ""
+        apex_domain = ""
     elif not private_ip:
         extractor = tldextract.TLDExtract()
         parsed_url = extractor.extract_urllib(split_url)
@@ -248,7 +249,8 @@ try:
         netloc = f"{hostname}:{port}" if port else hostname
         domain = ""
         domain_suffix = ""
-
+        apex_domain = ""
+        
     start_time = datetime.datetime.now()
 
     if output != "None":
